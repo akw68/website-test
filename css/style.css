@@ -496,7 +496,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-pricing,
 #about,
 #fh5co-started,
-#fh5co-project,
+#labs-milestones,
 #fh5co-blog,
 #fh5co-contact,
 #fh5co-footer {
@@ -508,7 +508,7 @@ h1, h2, h3, h4, h5, h6, figure {
   #fh5co-pricing,
   #about,
   #fh5co-started,
-  #fh5co-project,
+  #labs-milestones,
   #fh5co-blog,
   #fh5co-contact,
   #fh5co-footer {
@@ -668,10 +668,10 @@ h1, h2, h3, h4, h5, h6, figure {
   padding-bottom: 4em;
 }
 
-.fh5co-project {
+.labs-milestones {
   margin-bottom: 30px;
 }
-.fh5co-project > a {
+.labs-milestones > a {
   display: block;
   color: #000;
   position: relative;
@@ -681,13 +681,13 @@ h1, h2, h3, h4, h5, h6, figure {
   -o-transition: 0.5s;
   transition: 0.5s;
 }
-.fh5co-project > a img {
+.labs-milestones > a img {
   position: relative;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
 }
-.fh5co-project > a:after {
+.labs-milestones > a:after {
   opacity: 0;
   visibility: hidden;
   content: "";
@@ -706,7 +706,7 @@ h1, h2, h3, h4, h5, h6, figure {
   -o-transition: 0.5s;
   transition: 0.5s;
 }
-.fh5co-project > a h3, .fh5co-project > a span {
+.labs-milestones > a h3, .labs-milestones > a span {
   z-index: 12;
   position: absolute;
   right: 20px;
@@ -723,40 +723,40 @@ h1, h2, h3, h4, h5, h6, figure {
   -o-transition: 0.3s;
   transition: 0.3s;
 }
-.fh5co-project > a span {
+.labs-milestones > a span {
   font-size: 14px;
   bottom: 20px;
 }
-.fh5co-project > a:hover {
+.labs-milestones > a:hover {
   -webkit-box-shadow: 0px 18px 71px -10px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 18px 71px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 18px 71px -10px rgba(0, 0, 0, 0.75);
 }
-.fh5co-project > a:hover:after {
+.labs-milestones > a:hover:after {
   opacity: 1;
   visibility: visible;
 }
 @media screen and (max-width: 768px) {
-  .fh5co-project > a:hover:after {
+  .labs-milestones > a:hover:after {
     opacity: 0;
     visibility: hidden;
   }
 }
-.fh5co-project > a:hover h3, .fh5co-project > a:hover span {
+.labs-milestones > a:hover h3, .labs-milestones > a:hover span {
   opacity: 1;
   bottom: 55px;
 }
-.fh5co-project > a:hover span {
+.labs-milestones > a:hover span {
   bottom: 15px;
 }
-.fh5co-project > a:hover img {
+.labs-milestones > a:hover img {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
   transform: scale(1.1);
 }
 @media screen and (max-width: 768px) {
-  .fh5co-project > a:hover img {
+  .labs-milestones > a:hover img {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     -o-transform: scale(1);
