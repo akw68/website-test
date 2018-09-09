@@ -91,7 +91,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-1">
-						<div id="fh5co-logo"><a href="index.html">Agueroooo<span>.</span></a></div>
+						<div id="fh5co-logo"><a href="index.html">Name<span>.</span></a></div>
 					</div>
 					<div class="col-xs-11 text-right menu-1">
 						<ul>
@@ -99,10 +99,10 @@
 							<li class="has-dropdown">
 								<a href="#fh5co-project">Labs</a>
 								<ul class="dropdown">
-										<li><a href="#" data-toggle="modal" data-target="#mymodal">Lab 1</a></li>
-										<li><a href="#">Lab 2</a></li>
-										<li><a href="#">Lab 3</a></li>
-										<li><a href="#">Lab 4</a></li>
+										<li><a href="#" data-toggle="modal" data-target="#lab1">Lab 1</a></li>
+										<li><a href="#" data-toggle="modal" data-target="#lab2">Lab 2</a></li>
+										<li><a href="#" data-toggle="modal" data-target="#lab3">Lab 3</a></li>
+										<li><a href="#" data-toggle="modal" data-target="#lab4">Lab 4</a></li>
 									</ul>
 							</li>
 							<li class="has-dropdown">
@@ -210,25 +210,25 @@
 		<div class="container-fluid proj-bottom">
 			<div class="row">
 				<div class="col-md-3 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#" data-toggle="modal" data-target="#mymodal"><img src="images/project-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+					<a href="#" data-toggle="modal" data-target="#lab1"><img src="images/project-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 						<h3>Lab 1</h3>
 						<span>Microcontrollers</span>
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="images/project-2.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+					<a href="#" data-toggle="modal" data-target="#lab2"><img src="images/project-2.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 						<h3>Lab 2</h3>
 						<span>Analog Circuitry and FFT</span>
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="images/project-3.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+					<a href="#" data-toggle="modal" data-target="#lab3"><img src="images/project-3.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 						<h3>Lab 3</h3>
 						<span>Wireless Communication</span>
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="images/project-9.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+					<a href="#" data-toggle="modal" data-target="#lab4"><img src="images/project-9.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 						<h3>Lab 4</h3>
 						<span>FPGA / Vision</span>
 					</a>
@@ -385,20 +385,283 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
-	
-	
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mymodal">
-			Click Me
-	</button>
 
-
-	<div class="modal fade" id="mymodal">
+	<!--LAB 1-->
+	<div class="modal fade" id="lab1">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<span class="modal-header">
-					{% capture lab1 %}{% include_relative lab1.md %}{% endcapture %}
-     				{{ lab1 | markdownify }}
-				</span>
+				<div class="modal-header">
+					<h1>Lab 1: Microcontrollers</h1>
+				</div>
+				<div class="modal_body">
+					<p>
+						In Lab 1, we had to construct several simple circuits using multiple external components 
+						and the Arduino Uno microcontroller. With the Arduino microcontroller and the Arduino IDE, 
+						we constructed several simple Arduino programs, which culminated with us building our first 
+						robot and having it drive autonomously in a figure eight pattern.
+					</p>
+					<h2>Task 1 - Blinking the Internal LED:</h2>
+					<p>
+						The first task was to use the arduino to blink an internal LED. The on-chip LED is 
+						hard-wired to pin 13 which we set up as an ouput using the following code:
+					</p>
+					<pre><code>
+#define PIN_NUMBER LED_BUILTIN
+						
+void setup() {
+	pinMode(PIN_NUMBER, OUTPUT);
+}
+					</code></pre>
+					<p>
+						We then turned the LED on and off by setting it to high and low respectively:
+					</p>
+					<pre><code>
+void loop() {
+	digitalWrite(PIN_NUMBER, HIGH);   
+	delay(1000);                       // waits for a second
+	digitalWrite(PIN_NUMBER, LOW);    
+	delay(1000);                       
+}
+					</code></pre>
+					<h2>Task 2 - Blinking an External LED:</h2>
+					<p>
+						Our next task was to modify the code for task one to blink an external LED. We did this by 
+						connecting an external LED to a digital pin through a resistor as shown in the diagram below:
+					</p>
+					<figure>
+						<img src="images/person_3.jpg" alt="user">
+					</figure>
+					<p>
+						All we did in the code for this task was to change our Pin Number from the on-chip LED to 
+						the pin that we connected to the external LED:
+					</p>
+					<pre><code>
+#define PIN_NUMBER 0
+					</code></pre>
+					<p>
+						The resistor was used to prevent sourcing too much current through the pin in case of a short 
+						circuit, which would burn out both the Arduino and the external LED.
+					</p>
+					<h2>Task 3 - Reading an Analog Input:</h2>
+					<p>
+						Our third task was to detect changes in the resistance value of a potentiometer through an analog 
+						input pin and print the value to the serial monitor. This was accomplished by setting up a voltage 
+						divider circuit as shown below and connection the output of the circuit to an analog pin:
+					</p>
+					<figure>
+						<img src="images/person_3.jpg" alt="user">
+					</figure>
+					<p>
+						We then used the following code to set A0 as our analog pin and setup the serial monitor:
+					</p>
+					<pre><code>
+int potIPT = A0;
+
+void setup() {
+	Serial.begin(9600);   
+}
+					</code></pre>
+					<p>
+						Using the analogRead function, we were able to read the voltage value from the analog pin and output 
+						that value to the serial monitor every half second:
+					</p>
+					<pre><code>
+void loop() {
+	int val = analogRead(potIPT);  // read the input
+	Serial.println(val);           // print to serial monitor
+	delay(500);                    // wait half a second
+}
+					</code></pre>
+					<h2>Task 4 - Outputting an Analog Signal</h2>
+					<p>
+						Combining the setups of Tasks 2 & 3, we designed the following circuit which allowed us to 
+						use the analog signal input from the potentiometer to control the brightness of the external LED:
+					</p>
+					<figure>
+						<img src="images/person_3.jpg" alt="user">
+					</figure>
+					<p>
+						The LED could only be connected to one of the 6 digital pins which could output a PWN signal, 
+						which was required to simulate the effect of an analog voltage. The digital pin was set up as 
+						an output exactly as in Tasks 1 & 2. Inside the loop, we used the analogWrite function to output 
+						the analog voltage to the digital pin:
+					</p>
+					<pre><code>
+void loop() {
+	int val = analogRead(potIPT);     // read the input pin
+	analogWrite(PIN_NUMBER, map(val, 0, 1023, 0, 255));
+}
+					</code></pre>
+					<p>
+						The 10-bit ADC (Analog-to-Digital Converter) is able to input analog values from 0 to 1023, however 
+						the LED is only able to input voltage values from 0 to 255, so we used the map function to make sure 
+						that we didnt exceed the voltage limits of the LED.
+					</p>
+					<h2>Task 5 - Controlling Parallax Servos:</h2>
+					<p>
+						Our final task before assembling our robot was to use the PWM signal we generated in the previous task 
+						to drive and control a Parallax Continuous Rotation Servo. We did this using the Arduino Servo.h library. 
+						First we set up the servo and the serial monitor.
+					</p>
+					<pre><code>
+#include &lt;Servo.h&gt;
+#define PIN_NUMBER 3
+
+Servo myservo;  // create servo object to control a servo
+int potIPT = A0;
+
+void setup() {
+	myservo.attach(PIN_NUMBER);
+	Serial.begin(9600);
+}
+					</code></pre>
+					<p>
+						We then output the analog voltage of the potentiometer setup through the digital pin, as in Task 4, 
+						to control the speed and direction of the servo, with the only difference being that the range of voltage 
+						values for the servo was from 0 to 180 instead of 0 to 255.
+					</p>
+					<h2>Task 6 - Assembling the Robot:</h2>
+					<p>
+						The parts we used to assemble our robot were:
+						<ul>
+							<li>2 Servos</li>
+							<li>2 Servo Mounts</li>
+							<li>2 Wheels</li>
+							<li>1 Baseplate</li>
+							<li>11 Screws</li>
+							<li>11 nuts</li>
+							<li>1 Ball Bearing Wheel</li>
+							<li>1 Arduino</li>
+							<li>1 Rechargeable Battery Pack</li>
+						</ul>
+						The first thing we did was mount the servos to the servo mounts. As there was a shortage of screws and nuts 
+						in the lab, we only used two screws per servo instead of the four there are room for. The robot built in this 
+						lab will not be the same as the final robot, so we just needed enough screws to maintain structural integrity.
+						<br><br>
+						The servos were then mounted to the baseplate, using two screws per mount.
+						<br><br>
+						The wheels were then mounted to the servos. As one of our servos did not have a screw, we used wheels that fit 
+						snug on the servos. This is an issue that we will need to fix when designing later robots.
+						<br><br>
+						Next, we mounted the Arduino on top of the baseplate using two screws.
+						<br><br>
+						Finally, we attached the ball bearing wheel to the front of the robot.
+					</p>
+					<h2>Task 7 - Driving the Robot Autonomously:</h2>
+					<p>
+						Once the robot was built, we wrote code for the robot to autonomously drive in a figure eight pattern. The 2 
+						servos and digital output pins were set up as in the previous tasks and connected using the attach function:
+					</p>
+					<pre><code>
+void setup() {
+	leftWheel.attach(LEFT_WHEEL_PIN);
+	rightWheel.attach(RIGHT_WHEEL_PIN);
+}
+					</code></pre>
+					<p>
+						To control the movements of the robot, we had 3 basic functions: moveForward, moveRight, and moveLeft. The 
+						moveForward function worked by turning both wheels in the same direction at the same speed. The moveRight function 
+						worked by turning the left wheel forward while at the same time turning the right wheel backwards in order to pivot 
+						the robot and make it turn right. The moveLeft function worked in the same way but with the directions reversed.
+					</p>
+					<pre><code>
+void moveForward() {
+	leftWheel.write(FORWARD_POS);
+	rightWheel.write(FORWARD_POS);
+	delay(straightTime);
+}
+	
+void moveRight() {
+	leftWheel.write(FORWARD_POS);
+	rightWheel.write(BACKWARD_POS);
+	delay(rightTime);
+}
+	
+void moveLeft() {
+	leftWheel.write(BACKWARD_POS);
+	rightWheel.write(FORWARD_POS);
+	delay(leftTime);
+}
+					</code></pre>
+					<p>
+						Using these three funcitons in the following order would make the robot drive autonomously in a figure eight pattern:
+					</p>
+					<pre><code>
+void loop() {
+	moveStop();     //stops both wheels
+	moveForward();
+	moveLeft();
+	moveForward();
+	moveRight();
+	moveForward();
+	moveRight();
+	moveForward();
+	moveRight();
+	moveForward();
+	moveRight();
+	moveForward();
+	moveLeft();
+	moveForward();
+	moveLeft();
+	moveForward();
+	moveLeft();
+}
+					</code></pre>
+					<p>
+						The first time we tested the robot, it became apparent that one of our servos was spinning much faster than the other; 
+						so much faster that the robot was practically impossible to control.
+						<br><br>
+						We performed a series of tasks in order to identify the problem. First, we swapped the pins for our two servos. This 
+						would check to see if the issue was in the software rather than in the hardware. After switching the pins had no effect, 
+						we decided to try a third servo. The third servo was much closer to the speed we were expecting, so we switched out the 
+						super fast servo. After this switch, we were able to get out robot to drive in straight lines and in a proper figure eight pattern.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--LAB 2-->
+	<div class="modal fade" id="lab2">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1>Lab 2: Analog Circuitry and FFT</h1>
+				</div>
+				<div class="modal_body">
+					<p>implement me</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--LAB 3-->
+	<div class="modal fade" id="lab3">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1>Lab 3: Wireless Communication</h1>
+				</div>
+				<div class="modal_body">
+					<p>implement me</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--LAB 4-->
+	<div class="modal fade" id="lab4">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1>Lab 4: FPGA / Vision</h1>
+				</div>
+				<div class="modal_body">
+					<p>implement me</p>
+				</div>
 			</div>
 		</div>
 	</div>
